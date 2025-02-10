@@ -8,6 +8,18 @@ app.use(express.json());
 
 app.use(cors()); 
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*"); // Allow all origins (or restrict to frontend URL)
+  res.header("Access-Control-Allow-Methods", "GET, POST");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204); // Respond to preflight with no content
+  }
+
+  next();
+});
+
 app.get('/',async(req,res)=>{
 res.send(
     'server is up and running'
