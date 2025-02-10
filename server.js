@@ -5,7 +5,13 @@ require("dotenv").config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());  // Allow frontend requests
+
+app.use(cors({
+  origin: "http://127.0.0.1:5500/love.html", // Restrict to your frontend
+  methods: ["GET", "POST"], // Only allow necessary methods
+  allowedHeaders: ["Content-Type"], // Restrict headers to necessary ones
+  credentials: true
+}));
 
 app.get('/',async(req,res)=>{
 res.send(
