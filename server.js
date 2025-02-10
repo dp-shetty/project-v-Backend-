@@ -6,12 +6,7 @@ require("dotenv").config();
 const app = express();
 app.use(express.json());
 
-app.use(cors({
-  origin: "https://dp-shetty.github.io/", // Restrict to your frontend
-  methods: ["GET", "POST"], // Only allow necessary methods
-  allowedHeaders: ["Content-Type"], // Restrict headers to necessary ones
-  credentials: true
-}));
+app.use(cors()); 
 
 app.get('/',async(req,res)=>{
 res.send(
