@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: "http://127.0.0.1:5500/", // Restrict to your frontend
+  origin: "https://dp-shetty.github.io/", // Restrict to your frontend
   methods: ["GET", "POST"], // Only allow necessary methods
   allowedHeaders: ["Content-Type"], // Restrict headers to necessary ones
   credentials: true
